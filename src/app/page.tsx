@@ -51,7 +51,7 @@ export default function Home() {
     return (
         <>
             <h1> TodoList1 </h1>
-            {/*<AddTodo addTodo={addTodo}></AddTodo>*/}
+            <AddTodo addTodo={addTodo}></AddTodo>
             {/*<TodoList todos={getFilteredTodos()} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>*/}
             {/*<TodoFilter setFilter={setFilter}></TodoFilter>*/}
         </>
