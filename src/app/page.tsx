@@ -9,6 +9,7 @@ import {Todo} from "@/types";
 
 export default function Home() {
     const [todos, setTodos] = useState<Todo[]>([])
+    const [filter, setFilter] = useState('all')
 
     const addTodo = (text: string) => {
         const newTodo:Todo = {
@@ -34,12 +35,25 @@ export default function Home() {
         ))
     }
 
+    const getFilteredTodos = () => {  // 类似vue的computed
+        switch (filter) {
+            case 'all':
+                return todos
+            case 'completed':
+                return todos.filter(todo => todo.completed)
+            case 'active':
+                return todos.filter(todo => !todo.completed)
+            default:
+                return todos
+        }
+    }
+
     return (
         <>
             <h1> TodoList1 </h1>
             {/*<AddTodo addTodo={addTodo}></AddTodo>*/}
-            {/*<TodoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>*/}
-            <TodoFilter></TodoFilter>
+            {/*<TodoList todos={getFilteredTodos()} deleteTodo={deleteTodo} toggleTodo={toggleTodo}></TodoList>*/}
+            {/*<TodoFilter setFilter={setFilter}></TodoFilter>*/}
         </>
     );
 }
