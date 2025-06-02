@@ -1,9 +1,9 @@
-function TodoFilter() {
+function TodoFilter({setFilter} : any) {
     return(
         <div>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
+            <button onClick={() => setFilter('all')}>All</button>
+            <button onClick={() => setFilter('active')}>Active</button>
+            <button onClick={() => setFilter('completed')}>Completed</button>
         </div>
     )
 }
